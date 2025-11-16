@@ -368,10 +368,10 @@ For issues or questions:
 
 This pipeline provides a comprehensive evaluation of adversarial robustness:
 
-✅ **Main Pipeline**: Evaluate model vulnerability to FGSM and PGD attacks
-✅ **Adversarial Training**: Implement and test mitigation strategies
-✅ **Transferability Analysis**: Understand cross-model attack transferability
-✅ **Rich Visualizations**: Clear plots and heatmaps for analysis
-✅ **Detailed Reports**: Text reports with insights and recommendations
+ **Main Pipeline**: Evaluate model vulnerability to FGSM and PGD attacks
+ **Adversarial Training**: Implement and test mitigation strategies
+ **Transferability Analysis**: Understand cross-model attack transferability
+ **Rich Visualizations**: Clear plots and heatmaps for analysis
+ **Detailed Reports**: Text reports with insights and recommendations
 
 Start with the main pipeline, then explore adversarial training and transferability as needed!
