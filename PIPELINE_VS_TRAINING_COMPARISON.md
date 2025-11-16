@@ -50,7 +50,7 @@ This project includes **two distinct approaches** to adversarial robustness:
 | **Computational Cost** | Low (~5-15 min) | High (~30-90 min) |
 | **GPU Requirement** | Optional | Strongly recommended |
 | **Output** | Vulnerability metrics | Robust model + metrics |
-| **Model Changes** | ❌ No changes | ✅ Model improved |
+| **Model Changes** |  No changes |  Model improved |
 | **Primary Goal** | "How vulnerable is my model?" | "How can I make it robust?" |
 | **Use Case** | Assessment, Research | Production, Deployment |
 
@@ -83,13 +83,13 @@ Pre-trained Model (ResNet-18)
 
 ### Key Characteristics
 
-**✅ Advantages**:
+** Advantages**:
 - **Fast**: Completes in 5-15 minutes
 - **No training needed**: Works with any pre-trained model
 - **Low resource**: Runs on CPU (GPU optional)
 - **Comprehensive analysis**: Detailed vulnerability assessment
 
-**❌ Limitations**:
+** Limitations**:
 - **Read-only**: Doesn't improve the model
 - **Static**: Model remains vulnerable after evaluation
 - **No defense**: Only identifies problems, doesn't fix them
@@ -164,13 +164,13 @@ Standard Model Training          Adversarial Training
 
 ### Key Characteristics
 
-**✅ Advantages**:
+** Advantages**:
 - **Creates robustness**: Model learns to resist attacks
 - **Generalizes**: Often robust to attacks it wasn't trained on
 - **Production-ready**: Can deploy robust models
 - **Transferable**: Works across different attack types
 
-**❌ Limitations**:
+** Limitations**:
 - **Slow**: Takes 30-90 minutes (or hours for full training)
 - **Resource-intensive**: Requires good GPU
 - **Clean accuracy trade-off**: May sacrifice 5-15% clean accuracy
@@ -275,7 +275,7 @@ print(f"Robust   - Clean: {rob_clean}%, PGD: {rob_pgd}%")
 |--------|----------|----------|
 | Model weights | **Frozen** (no updates) | **Updated** (learned) |
 | Gradient computation | Only for attacks | For attacks + training |
-| Model improvement | ❌ No | ✅ Yes |
+| Model improvement |  No |  Yes |
 
 ### 2. **Computational Requirements**
 
@@ -283,7 +283,7 @@ print(f"Robust   - Clean: {rob_clean}%, PGD: {rob_pgd}%")
 |----------|----------|----------|
 | Time | 5-15 minutes | 30-90 minutes |
 | GPU memory | 2-4 GB | 4-8 GB |
-| CPU option | ✅ Viable | ⚠️ Very slow |
+| CPU option |  Viable |  Very slow |
 | Parallelization | Batch processing | Batch + distributed |
 
 ### 3. **Purpose & Output**
@@ -293,7 +293,7 @@ print(f"Robust   - Clean: {rob_clean}%, PGD: {rob_pgd}%")
 | Primary goal | Measure vulnerability | Build robustness |
 | Output type | Metrics & visualizations | Model + metrics |
 | Actionable result | "Model is vulnerable" | "Model is now robust" |
-| Deployment ready | ❌ No | ✅ Yes |
+| Deployment ready |  No |  Yes |
 
 ### 4. **Attack Usage**
 
@@ -337,9 +337,9 @@ Interpretation:
 
 | Attack | Accuracy | Drop from Clean | Status |
 |--------|----------|-----------------|--------|
-| Clean  | 85-90% | 0% | ✅ Good |
-| FGSM   | 40-50% | 40-45% | ❌ Vulnerable |
-| PGD    | 10-25% | 60-75% | ❌ Very Vulnerable |
+| Clean  | 85-90% | 0% |  Good |
+| FGSM   | 40-50% | 40-45% |  Vulnerable |
+| PGD    | 10-25% | 60-75% |  Very Vulnerable |
 
 **Verdict**: Model performs well on clean data but is **extremely vulnerable** to adversarial attacks.
 
@@ -348,8 +348,8 @@ Interpretation:
 | Attack | Standard Model | Adversarial Model | Improvement |
 |--------|---------------|-------------------|-------------|
 | Clean  | 85% | 78% | -7% (trade-off) |
-| FGSM   | 45% | 65% | **+20%** 🎯 |
-| PGD    | 15% | 45% | **+30%** 🎯 |
+| FGSM   | 45% | 65% | **+20%**  |
+| PGD    | 15% | 45% | **+30%**  |
 
 **Verdict**: Small clean accuracy sacrifice (7%) for **significant robustness gains** (20-30%).
 
@@ -361,16 +361,16 @@ Interpretation:
 ├─────────────────────────────────────────────────────────┤
 │                                                          │
 │  Clean Accuracy                                          │
-│  Standard:  ████████████████████ 85%                    │
-│  Robust:    ████████████████▓▓▓ 78%  (-7%)             │
+│  Standard:  ████████████████████ 85%                     │
+│  Robust:    ████████████████▓▓▓ 78%  (-7%)               │
 │                                                          │
 │  FGSM Robustness                                         │
-│  Standard:  ██████████░░░░░░░░░ 45%                    │
-│  Robust:    ██████████████████▓ 65%  (+20%)  ⭐        │
+│  Standard:  ██████████░░░░░░░░░ 45%                      │
+│  Robust:    ██████████████████▓ 65%  (+20%)              │
 │                                                          │
 │  PGD Robustness                                          │
-│  Standard:  ████░░░░░░░░░░░░░░░ 15%                    │
-│  Robust:    ██████████████░░░░░ 45%  (+30%)  ⭐        │
+│  Standard:  ████░░░░░░░░░░░░░░░ 15%                      │
+│  Robust:    ██████████████░░░░░ 45%  (+30%)              │
 │                                                          │
 └─────────────────────────────────────────────────────────┘
 
@@ -392,7 +392,7 @@ FGSM Robustness Gain:    +20%    (Significant)
 PGD Robustness Gain:     +30%    (Excellent)
 
 Trade-off Ratio: 1% clean → 3-4% adversarial
-Recommendation: ✅ Worth it for adversarial settings
+Recommendation:  Worth it for adversarial settings
 ```
 
 ---
@@ -401,22 +401,22 @@ Recommendation: ✅ Worth it for adversarial settings
 
 ### Use Adversarial Pipeline When:
 
-✅ **Evaluating existing models**
+ **Evaluating existing models**
 - You have a pre-trained model and want to test its robustness
 - Quick security audit needed
 - Research: comparing different architectures' vulnerabilities
 
-✅ **Initial assessment**
+ **Initial assessment**
 - First step: understand current vulnerability level
 - Before deciding whether to invest in adversarial training
 - Baseline measurements for comparison
 
-✅ **Limited resources**
+ **Limited resources**
 - No GPU available or limited compute budget
 - Need quick results (minutes, not hours)
 - Exploring multiple models quickly
 
-✅ **Analysis and research**
+ **Analysis and research**
 - Studying attack transferability
 - Comparing attack methods (FGSM vs PGD)
 - Understanding adversarial examples visually
@@ -435,22 +435,22 @@ Scenario 3: "What does an adversarial example look like?"
 
 ### Use Adversarial Training When:
 
-✅ **Building production systems**
+ **Building production systems**
 - Model will face real-world adversarial attacks
 - Security is critical (e.g., malware detection, spam filtering)
 - Adversarial robustness is a requirement
 
-✅ **Improving model robustness**
+ **Improving model robustness**
 - Pipeline showed significant vulnerabilities
 - Need to harden defenses
 - Willing to trade some clean accuracy for robustness
 
-✅ **Research on defenses**
+ **Research on defenses**
 - Testing mitigation strategies
 - Comparing defense effectiveness
 - Publishing robustness benchmarks
 
-✅ **Long-term deployment**
+ **Long-term deployment**
 - Model will be deployed for extended periods
 - Updates are expensive or infrequent
 - Robust-by-design approach needed
@@ -601,28 +601,28 @@ max_iter = 10  # Moderate attacks
 
 ### Adversarial Pipeline (Evaluation)
 ```
-🎯 Purpose: Diagnose vulnerabilities
+ Purpose: Diagnose vulnerabilities
 ⚡ Speed: Fast (minutes)
-📊 Output: Metrics & visualizations
-🔒 Security: Identifies problems
-💰 Cost: Low computational cost
+ Output: Metrics & visualizations
+ Security: Identifies problems
+ Cost: Low computational cost
 ```
 
 ### Adversarial Training (Mitigation)
 ```
-🎯 Purpose: Build robustness
-⏱️ Speed: Slow (hours)
-📦 Output: Robust model
-🔒 Security: Solves problems
-💰 Cost: High computational cost
+ Purpose: Build robustness
+ Speed: Slow (hours)
+ Output: Robust model
+ Security: Solves problems
+ Cost: High computational cost
 ```
 
 ### Best Practice
 ```
-1️⃣ Start with Pipeline → Measure vulnerability
-2️⃣ If vulnerable → Use Training
-3️⃣ Verify with Pipeline → Confirm improvement
-4️⃣ Deploy → Robust model ready
+1️ Start with Pipeline → Measure vulnerability
+2️ If vulnerable → Use Training
+3️ Verify with Pipeline → Confirm improvement
+4️ Deploy → Robust model ready
 ```
 
 ---
