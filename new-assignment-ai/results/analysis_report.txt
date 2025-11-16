@@ -1,0 +1,94 @@
+================================================================================
+ADVERSARIAL ROBUSTNESS EVALUATION REPORT
+================================================================================
+
+Clean Data Accuracy: 9.30%
+
+Adversarial Attack Results:
+--------------------------------------------------------------------------------
+
+FGSM Attack:
+  - Epsilon: 0.03
+  - Adversarial Accuracy: 8.60%
+  - Accuracy Drop: 0.70%
+  - Average Perturbation: 0.029773
+  - Max Perturbation: 0.030000
+
+PGD Attack:
+  - Epsilon: 0.03
+  - Adversarial Accuracy: 9.20%
+  - Accuracy Drop: 0.10%
+  - Average Perturbation: 0.029444
+  - Max Perturbation: 0.030000
+
+================================================================================
+ANALYSIS AND INSIGHTS
+================================================================================
+
+1. ATTACK EFFECTIVENESS:
+
+   - Most effective attack: FGSM (accuracy dropped to 8.60%)
+   - Least effective attack: PGD (accuracy dropped to 9.20%)
+
+2. CONCEPTUAL DIFFERENCES BETWEEN ATTACKS:
+
+   FGSM (Fast Gradient Sign Method):
+   - Single-step attack using the sign of the gradient
+   - Fast to compute but less sophisticated
+   - Perturbation: x_adv = x + ε * sign(∇_x L(θ, x, y))
+   - Pros: Very fast, good for adversarial training
+   - Cons: Less effective than iterative methods
+
+   PGD (Projected Gradient Descent):
+   - Iterative attack with multiple small steps
+   - Projects perturbation back to epsilon ball after each step
+   - Considered one of the strongest first-order attacks
+   - Pros: More effective, better explores adversarial space
+   - Cons: Computationally expensive (multiple iterations)
+
+3. OBSERVED VULNERABILITIES:
+
+   - The model shows RELATIVELY LOW vulnerability to adversarial attacks
+   - Average accuracy drop: 0.40%
+   - The model exhibits some inherent robustness
+
+4. MITIGATION STRATEGIES:
+
+   Recommended approaches to improve adversarial robustness:
+
+   a) Adversarial Training:
+      - Train on mix of clean and adversarial examples
+      - Use PGD-generated adversarial examples during training
+      - Most effective defense but computationally expensive
+
+   b) Input Preprocessing:
+      - Apply transformations (JPEG compression, bit-depth reduction)
+      - Use denoising autoencoders
+      - Random resizing and padding
+
+   c) Certified Defenses:
+      - Randomized smoothing
+      - Provable robustness guarantees within epsilon ball
+      - Trade-off between robustness and accuracy
+
+   d) Ensemble Methods:
+      - Use multiple models with different architectures
+      - Adversarial examples may not transfer well
+      - Increases computational cost
+
+   e) Detection Methods:
+      - Train adversarial example detectors
+      - Reject suspicious inputs
+      - Can be bypassed by adaptive attacks
+
+5. RECOMMENDATIONS:
+
+   Based on the evaluation results:
+   - Priority: Implement adversarial training with PGD (ε=0.03)
+   - Consider: Input preprocessing as additional defense layer
+   - Evaluate: Trade-off between clean and robust accuracy
+   - Monitor: Model performance on diverse adversarial attacks
+
+================================================================================
+END OF REPORT
+================================================================================
