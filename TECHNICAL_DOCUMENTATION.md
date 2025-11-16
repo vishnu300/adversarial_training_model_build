@@ -508,12 +508,12 @@ x_adv = attack.generate(x=x_clean)
 |---------|-----|------------|---------|------------|
 | **Framework Support** | PyTorch, TF, Keras, JAX | TensorFlow, PyTorch | PyTorch, TF, JAX | PyTorch only |
 | **Attack Methods** | 40+ | 15+ | 30+ | 20+ |
-| **Defense Methods** | ✅ Yes | ❌ Limited | ❌ No | ❌ No |
-| **Active Development** | ✅ Very active | ⚠️ Moderate | ✅ Active | ⚠️ Slow |
-| **Production Ready** | ✅ Yes | ⚠️ Research | ⚠️ Research | ❌ Research |
-| **Documentation** | ✅ Excellent | ✅ Good | ✅ Good | ⚠️ Limited |
-| **API Consistency** | ✅ Unified | ⚠️ Variable | ✅ Unified | ✅ Unified |
-| **Industry Adoption** | ✅ IBM, etc. | ✅ Google | ⚠️ Academic | ❌ Academic |
+| **Defense Methods** |  Yes |  Limited |  No |  No |
+| **Active Development** |  Very active |  Moderate |  Active |  Slow |
+| **Production Ready** |  Yes |  Research |  Research |  Research |
+| **Documentation** |  Excellent |  Good |  Good |  Limited |
+| **API Consistency** |  Unified |  Variable |  Unified |  Unified |
+| **Industry Adoption** |  IBM, etc. |  Google |  Academic |  Academic |
 
 **Why ART Was Chosen**:
 
@@ -581,8 +581,8 @@ x_adv = attack.perturb(x_clean, y_clean)
 - **Resource Constraints**: Users may not have GPUs for training
 
 **Trade-off**:
-- ✅ Faster setup, better baselines
-- ❌ Not optimized specifically for CIFAR-10
+-  Faster setup, better baselines
+-  Not optimized specifically for CIFAR-10
 
 ### 2. Number of Test Samples
 
@@ -602,8 +602,8 @@ Statistical significance:
 ```
 
 **Trade-off**:
-- ✅ Fast iteration, acceptable accuracy
-- ❌ Slightly less precise metrics
+-  Fast iteration, acceptable accuracy
+-  Slightly less precise metrics
 
 ### 3. Epsilon (Perturbation Magnitude)
 
@@ -623,8 +623,8 @@ Visual detectability:
 ```
 
 **Trade-off**:
-- ✅ Standard benchmark value, fair comparison
-- ❌ Somewhat visible (but acceptable for research)
+-  Standard benchmark value, fair comparison
+-  Somewhat visible (but acceptable for research)
 
 ### 4. PGD Iterations
 
@@ -644,8 +644,8 @@ Runtime:
 ```
 
 **Trade-off**:
-- ✅ Strong attack, reliable benchmark
-- ❌ Slower than 10-iter PGD
+-  Strong attack, reliable benchmark
+-  Slower than 10-iter PGD
 
 ### 5. Batch Size
 
@@ -665,8 +665,8 @@ CIFAR-10 images (32×32×3):
 ```
 
 **Trade-off**:
-- ✅ Good GPU utilization, stable training
-- ❌ May need reduction on low-memory GPUs
+-  Good GPU utilization, stable training
+-  May need reduction on low-memory GPUs
 
 ### 6. Attack Selection
 
@@ -680,15 +680,15 @@ Attack coverage:
 - DeepFool: Minimal perturbation (optional, slow)
 
 This covers:
-✅ Fast vs Slow
-✅ Weak vs Strong
-✅ One-step vs Iterative
-✅ Standard benchmarks
+ Fast vs Slow
+ Weak vs Strong
+ One-step vs Iterative
+ Standard benchmarks
 ```
 
 **Trade-off**:
-- ✅ Comprehensive evaluation, reasonable time
-- ❌ Missing C&W, AutoAttack (very slow)
+-  Comprehensive evaluation, reasonable time
+-  Missing C&W, AutoAttack (very slow)
 
 ---
 
@@ -926,12 +926,12 @@ lb, ub = bounded_model.compute_bounds()
 
 This project implements a **production-grade adversarial robustness evaluation pipeline** with:
 
-✅ **Industry-standard tools**: PyTorch + ART
-✅ **Multiple architectures**: ResNet, VGG, MobileNet
-✅ **Comprehensive attacks**: FGSM, PGD, DeepFool
-✅ **Robust implementation**: Error handling, optimization
-✅ **Extensible design**: Easy to add new attacks/defenses
-✅ **Well-documented**: Code and design decisions explained
+ **Industry-standard tools**: PyTorch + ART
+ **Multiple architectures**: ResNet, VGG, MobileNet
+ **Comprehensive attacks**: FGSM, PGD, DeepFool
+ **Robust implementation**: Error handling, optimization
+ **Extensible design**: Easy to add new attacks/defenses
+ **Well-documented**: Code and design decisions explained
 
 **Key Technical Highlights**:
 - Pre-trained model transfer learning
